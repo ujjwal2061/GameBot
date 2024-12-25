@@ -24,6 +24,9 @@ if(!user) {
 window.addEventListener('scroll',handleScroll);
   return ()=> window.removeEventListener('scroll',handleScroll);
 },[]);
+const apikey=()=>{
+  console.log(import.meta.env.VITE_API_KEY)
+}
     return(
   <section>    
  <div className="min-h-screen">  
@@ -35,6 +38,9 @@ window.addEventListener('scroll',handleScroll);
      <Useracc />
     </div>
   </nav>
+  <div className="mt-14">
+    <button onClick={apikey}>Click</button>
+  </div>
 </div>
   </section>
     )
