@@ -5,7 +5,7 @@ import SignIn from '../Component/Sigin'
 import Home from "../Component/Home"
 import Procted from '../Component/ProttectedRoute/Procted'
 import Mainpage from '../Component/Mainpage'
-import Errorpage from '../Component/Errorpage'
+import Errorpage from '../ErrorPage/Errorpage'
 
 // create the router for the Component 
 const router=createBrowserRouter([
