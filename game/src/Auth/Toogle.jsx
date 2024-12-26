@@ -1,5 +1,5 @@
 import { createContext  , useState} from "react"
- export const ToogleContext=createContext("light");
+ export const ToogleContext=createContext();
 
 const ToogleProvider=({children})=>{
     const [theme ,setTheme]=useState("dark")
