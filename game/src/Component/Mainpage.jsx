@@ -35,10 +35,10 @@ window.addEventListener('scroll',handleScroll);
     </div>
     
       <div className="flex flex-row justify-center items-center gap-3  rounded-full px-1 py-1">
-       <div className="mr-2">
+       {/* <div className="mr-2">
         {theme =="light" ?<i className="fa-solid fa-moon  rounded-full  text-xl  cursor-pointer " onClick={()=>setTheme("dark")}></i>:
        <i className="fa-solid fa-sun  rounded-full text-[20px]  cursor-pointer"  onClick={()=>setTheme("light")}></i> }
-      </div>
+      </div> */}
      <div className="mr-2 hover:shadow-lg rounded-md  px-2 py-1">
       <Useracc/>
      </div>
