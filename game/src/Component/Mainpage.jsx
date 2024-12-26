@@ -4,10 +4,9 @@ import Useracc from "../Useracc/Useracc";
 import { useFirebaseAuth } from "../Auth/Fireauth";
 import  { ToogleContext } from "../Auth/Toogle";
 import Data from "../API/Data";
+
 const Mainpage=()=>{
   const navigate = useNavigate();
-    const [gamesCollection,setGamesCollection]=useState([])
-    const[loading ,setLoading]=useState(false);
     const [isScrolled,setIsScrolled]=useState(false);
     const {user} =useFirebaseAuth();
     const {theme,setTheme}=useContext(ToogleContext)
@@ -30,7 +29,7 @@ window.addEventListener('scroll',handleScroll);
     return(
  
  <div className={`min-h-screen ${theme} ${theme==='dark'? "bg-black " :null}`}>  
-  <nav className={`w-full  fixed  flex  justify-between items-center  border-b-[0.5px] border-b-black top-0 z-50 transition-all duration-300    gap-2 ${isScrolled ? 'bg-white backdrop-blur-sm shadow-lg ' : 'bg-transparent'} `}>
+  <nav className={`w-full  fixed  flex  justify-between items-center  border-b-[0.5px] border-b-black top-0 z-50 transition-all duration-300    gap-2 ${isScrolled ? ' backdrop-blur-sm shadow-lg ' : 'bg-transparent'} `}>
     <div  className=" py-2 ml-2 flex flex-row  items-center gap-6 text-black rounded-md ">
         <img src="download.jpeg" alt="_logo" className="w-10 rounded-full cursor-pointer hover:shadow-xl hover:scale-110 transition-all duration-300 ease-in-out " />
     </div>
