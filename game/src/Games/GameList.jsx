@@ -1,29 +1,28 @@
 
  import { useEffect, useState } from "react"
 
-const GamesList=()=>{
+const GamesList=({generID})=>{
 
     const [gameslist ,setgameslist]=useState([])
 
-    
-        const key="9b1bc84600374d0abdb13847e5ed31a0"
+        const key="81fad494a94b4a6f877abc6a14d864db"
         const getGames=async()=>{
-        const gameLink=`https://api.rawg.io/api/games?key=${key}`
+        const gameLink=`https://api.rawg.io/api/games?key=${key}&genres=${generID}`
         try{
           const gameResult=await fetch(gameLink)
           const gamesList=await gameResult.json()
           setgameslist(gamesList.results)
-          console.log(gamesList.results);
-
+      
         }catch(error){
-          console.log(error);
-          
+          console.log(error); 
         }
       }
       
     useEffect(()=>{
-      getGames();
-  },[])
+      if(generID){
+        getGames();
+      }
+  },[generID])
     return(
  <> 
   {/*For First Games */}
@@ -39,9 +38,9 @@ const GamesList=()=>{
     {/* For Trending Games */}
   <div className="p-2 md:block hidden ">
      <h1 className="font-exo text-2xl font-semibold dark:text-white">Trending Games</h1>
-        <div className="    hidden md:grid  container grid-cols-1 gap-3 m-2  md:grid-cols-4 sm:grid-cols-3 ">
+        <div    className="    hidden md:grid  container grid-cols-1 gap-3 m-2  md:grid-cols-4 sm:grid-cols-3 ">
           {gameslist.map((element ,index)=>index < 4 && (
-           <div className="bg-gray-600 px-2 py-1 rounded-md hover:scale-110   transition-transform duration-500 ease-in hover:duration-500 hover:transition-all hover:ease-in-out cursor-pointer transform"> 
+           <div key={index} className="bg-gray-600 px-2 py-1 rounded-md hover:scale-110   transition-transform duration-500 ease-in hover:duration-500 hover:transition-all hover:ease-in-out cursor-pointer transform"> 
             <img src={element.background_image}  className= "w-auto  h-56 object-cover  rounded-lg"/>
             <h2 className="bg-gray-900  rounded-md flex justify-center items-center px-1  mt-2 ">{element.name}</h2>
            </div>
@@ -49,6 +48,7 @@ const GamesList=()=>{
         </div>
   </div>
       {/*For Popular games */}
+      
       <div className="p-2">
      <h1 className="font-serif text-xl font-semibold dark:text-white">Popular Gmaes </h1>
   <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-3">
@@ -61,14 +61,7 @@ const GamesList=()=>{
       ))}
      </div>
  </div>
- {/* <div  className="mt-2">
-   <h3 className="font-bold mb-2">Platforms:</h3>
-    <ul className="list-disc list-inside">
-       {gameslist[0].platforms.map((platformData, index) => ( 
-        <li key={index} className="text-gray-700"> {platformData.platform.name} 
-        </li> ))} 
- </ul> 
- </div> */}
+
   </>
     
     )
