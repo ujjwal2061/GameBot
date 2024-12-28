@@ -5,6 +5,7 @@ const GamesList=({generID})=>{
 
     const [gameslist ,setgameslist]=useState([])
 
+        // const key=import.meta.env.VITE_RAWG_APIKEY
         const key="81fad494a94b4a6f877abc6a14d864db"
         const getGames=async()=>{
         const gameLink=`https://api.rawg.io/api/games?key=${key}&genres=${generID}`
@@ -17,7 +18,7 @@ const GamesList=({generID})=>{
           console.log(error); 
         }
       }
-      
+      // generid when the user Seclected the user 
     useEffect(()=>{
       if(generID){
         getGames();
@@ -26,11 +27,11 @@ const GamesList=({generID})=>{
     return(
  <> 
   {/*For First Games */}
-    <div className=" relative flex flex-row justify-center rounded-lg " >
+    <div className=" reative  flex justify-center rounded-lg " >
           { gameslist?.length>0 && (
             <div className>
-                <p  className="  ml-5 font-jetbrains text-xl  absolute bottom-16 ">{gameslist[0].name}</p>
-                <button className="ml-5 font-mono rounded-md  dark:text-white text-xl px-2 py-2 absolute bottom-3 bg-blue-600 hover:bg-blue-900">Get Now</button>
+                <p  className="  ml-5 font-jetbrains text-xl  absolute bottom-[280px] ">{gameslist[0].name}</p>
+                <button className="ml-5 font-mono rounded-md  dark:text-white text-xl px-2 py-2 absolute bottom-[225px] bg-blue-600 hover:bg-blue-900">Get Now</button>
               <img src={gameslist[0].background_image} className="m-2 w-full max-w-[700px] h-auto rounded-md object-contain  hover:shadow-lg"/>
               </div>
           )}
