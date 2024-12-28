@@ -33,7 +33,7 @@ Follow these steps to set up the project locally:
    cd GameBot
    npm install
 ## Webb Image 
-![Web App Screenshot](https://github.com/your-username/GameBot/blob/main/screenshot.png)
+![Rep1](https://github.com/user-attachments/assets/07795984-1909-43eb-8a1d-97cffeef5f51)
 
 
 
