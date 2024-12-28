@@ -32,6 +32,10 @@ Follow these steps to set up the project locally:
    git clone https://github.com/your-username/GameBot.git
    cd GameBot
    npm install
+   ## 🖼️ Web App Screenshot
 
- 
+![Web App Screenshot](https://github.com/your-username/GameBot/blob/main/screenshot.png)
 
+
+
+   
