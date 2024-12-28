@@ -9,7 +9,8 @@ const Data=()=>{
     const [selectedGenreId, setSelectedGenreId] = useState("4");
 
 
-    const key="81fad494a94b4a6f877abc6a14d864db"
+    // const key=import.meta.env.VITE_RAWG_APIKEY
+    const key ="81fad494a94b4a6f877abc6a14d864db"
     // show the Data one Component render
     const getGener = async () => {
       const link = `https://api.rawg.io/api/genres?key=${key}`;
@@ -24,7 +25,7 @@ const Data=()=>{
         console.log("Fetching error", error);
       }
     };
-       // geting the the 
+       // geting the genre id 
        const getgamesid=async (id)=>{
         const gameid = `https://api.rawg.io/api/genres/${id}?key=${key}`;
      try{
@@ -38,7 +39,7 @@ const Data=()=>{
        useEffect(() => {
         getGener();
       }, []);
-
+       // check the user select the Genreid and render it 
        useEffect(()=>{
         if(selectedGenreId){
           getgamesid(selectedGenreId)
@@ -49,23 +50,24 @@ const Data=()=>{
     // for the Loading Section 
       
     return(
-  <section className={`mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" : null } `}>
-        <div className=" h-full   w-[70%]  border-r-2 hidden md:block  overflow-y-auto">
+  
+  <section className={`  mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" : null } `}>
+        <div className=" fixed top-14 left-0 h-screen w-[20%] overflow-y-auto    border-r-2 hidden md:block ">
           <h2 className="dark:text-white   dark:hover:bg-slate-200  dark:hover:text-black font-special   hover:bg-gray-950 hover:text-white rounded-md px-2 py-1  cursor-pointer  m-2">Gener Section</h2>
           {GamesGener && GamesGener.map((items,index)=>{
            return (
-            <div   onClick={()=>{setactiveIndex(index);setSelectedGenreId(items.id)}}  key={index} className={` rounded-md  ml-2 p-2 pb-2  hover:bg-gray-500  flex items-center cursor-pointer  ${acvtiveIndex===index?"bg-gray-600":null}`}> 
+            <div   onClick={()=>{setactiveIndex(index);setSelectedGenreId(items.id)}}  key={index} className={`rounded-md  ml-2 p-2 pb-2 fiexd left-0 top-0 bottom-0  hover:bg-gray-500  flex items-center cursor-pointer  ${acvtiveIndex===index?"bg-gray-600":null}`}> 
               <img src={items.image_background}  className="w-[50px] h-[50px]  object-cover rounded-lg "/>
               <h3  className=" dark:text-white ml-2 font-mono text-xl  font-semibold">{items.name}</h3>
            </div>
            )
           })}
         </div>
-        <div className= "  col-span-3 md:col-span-2 h-full overflow-y ">
+         <div className= " ml-[200px] md:ml-[320px]  col-span-3 md:col-span-3 ">
           {/* pass the props here the games id */ }
-          <GamesList   generID={selectedGenreId}  />
-        </div>
-    </section>
+        <GamesList   generID={selectedGenreId}  /> 
+        </div> 
+     </section>
 
     )
 }
