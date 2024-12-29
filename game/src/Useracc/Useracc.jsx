@@ -1,7 +1,7 @@
-import {access, useFirebaseAuth} from '../Auth/Fireauth'
+import {access} from '../Auth/Fireauth'
 import { useEffect } from "react";
 import { useState } from "react";
-import {User ,LogOut, Settings,Pencil} from 'lucide-react'
+import {User ,LogOut,Pencil} from 'lucide-react'
 import {signOut} from "firebase/auth"
 import { useNavigate } from 'react-router';
 
@@ -67,7 +67,7 @@ const Useracc=()=>{
       {userimage? (
         <img  src={userimage}  alt="User"  className="w-full h-full object-cover" />
          ) : (
-           <div className="w-full h-full bg-gray-100 flex items-center justify-center">""
+           <div className="w-full h-full bg-gray-100 flex items-center justify-center">
               <User className="w-6 h-6 text-gray-400" />
             </div>
             )}

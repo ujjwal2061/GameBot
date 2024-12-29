@@ -45,7 +45,7 @@ const Data=()=>{
           getgamesid(selectedGenreId)
         }
         
-       },[])
+       },[selectedGenreId])
 
     // for the Loading Section 
       

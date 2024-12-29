@@ -1,10 +1,11 @@
 
- import { useEffect, useState } from "react"
+ import { useEffect,  useState } from "react"
 
 const GamesList=({generID})=>{
 
     const [gameslist ,setgameslist]=useState([])
-
+    const [isLiked, setIsLiked] = useState(false);
+ 
         // const key=import.meta.env.VITE_RAWG_APIKEY
         const key="81fad494a94b4a6f877abc6a14d864db"
         const getGames=async()=>{
@@ -24,6 +25,11 @@ const GamesList=({generID})=>{
         getGames();
       }
   },[generID])
+
+ const AddtoFava=()=>{
+  setIsLiked(!isLiked)
+ }
+
     return(
  <> 
   {/*For First Games */}
@@ -53,11 +59,12 @@ const GamesList=({generID})=>{
       <div className="p-2">
      <h1 className="font-serif text-xl font-semibold dark:text-white">Popular Gmaes </h1>
   <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-3">
-      {gameslist.map((element)=>(
-        <div className="p-2 bg-gray-800 gap-2 rounded-lg  m-2  transition-all  ease-in-out  duration-500 hover:scale-105 cursor-pointer ">
+      {gameslist.map((element,index)=>(
+        <div  key={index} className="p-2 bg-gray-800 gap-2 rounded-lg  m-2  transition-all  ease-in-out  duration-500 hover:scale-105 cursor-pointer ">
           <img src={element.background_image} className="rounded-lg object-cover h-60" />
           <h2 className="mt-1 font-semibold">{element.name}</h2>
           <h3 className="text-sm m-1">❇️{element.rating} 🗯{element.reviews_count} 📛{element.rating_top}</h3>
+          <button    onClick={AddtoFava} className={`px-2 py-1 rounded-full  transition-all durantion-300 hover:bg-red-400  a}`} aria-label={isLiked ? 'Unlike' : 'Like'}><i   className={`fa-solid fa-heart ${isLiked ? 'fill-red-900 scale-110 ':'fill-none scale-100'} `}></i></button>
          </div>
       ))}
      </div>
