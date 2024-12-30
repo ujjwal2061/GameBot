@@ -51,7 +51,7 @@ const Data=()=>{
       
     return(
   
-  <section className={`  mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" : null } `}>
+  <section className={`mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" : "" } `}>
         <div className=" fixed top-14 left-0 h-screen w-[20%] overflow-y-auto    border-r-2 hidden md:block ">
           <h2 className="dark:text-white   dark:hover:bg-slate-200  dark:hover:text-black font-special   hover:bg-gray-950 hover:text-white rounded-md px-2 py-1  cursor-pointer  m-2">Gener Section</h2>
           {GamesGener && GamesGener.map((items,index)=>{
@@ -63,7 +63,7 @@ const Data=()=>{
            )
           })}
         </div>
-         <div className= " ml-[200px] md:ml-[320px]  col-span-3 md:col-span-3 ">
+         <div className= " ml-[200px] md:ml-[320px]  col-span-3 md:col-span-4 ">
           {/* pass the props here the games id */ }
         <GamesList   generID={selectedGenreId}  /> 
         </div> 
