@@ -31,7 +31,7 @@ const Data=()=>{
      try{
        const gamesid=await fetch(gameid)
        const data= await gamesid.json();
-       console.log(data);
+       console.log(data.id)
      }catch(e){
       console.log("Eror Fetching the Gamesid",e)
      }
