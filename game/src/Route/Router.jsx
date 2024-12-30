@@ -5,7 +5,7 @@ import Home from "../Component/Home"
 import Procted from '../Component/ProttectedRoute/Procted'
 import Mainpage from '../Component/Mainpage'
 import Errorpage from '../ErrorPage/Errorpage'
-import Fava from "../Fava/Fava"
+
 
 // create the router for the Component 
 const router=createBrowserRouter([
@@ -18,9 +18,7 @@ const router=createBrowserRouter([
       <Mainpage />,
     </Procted>
   )
-},{
-path:"/fava", element:<Fava />}
-
+}
 ])
 
  const Router=()=>{
