@@ -4,7 +4,7 @@ import Useracc from "../Useracc/Useracc";
 import { useFirebaseAuth } from "../Auth/Fireauth";
 import  { ToogleContext } from "../Auth/Toogle";
 import Data from "../API/Data";
-import { NavLink } from "react-router-dom"
+import { Gamepad2 } from 'lucide-react';
 
 
 const Mainpage=()=>{
@@ -43,9 +43,7 @@ window.addEventListener('scroll',handleScroll);
         {theme =="light" ?<i className="fa-solid fa-moon  rounded-full  text-xl  cursor-pointer " onClick={()=>setTheme("dark")}></i>:
        <i className="fa-solid fa-sun  rounded-full text-[20px]  cursor-pointer"  onClick={()=>setTheme("light")}></i> }
       </div> */}
-    <button className="bg-black px-3 py-1 font-carter text-white rounded-lg hover:bg-gray-800 transition-colors">
-          <NavLink to="/fava"><i className="fa-solid fa-plus"></i></NavLink>
-          </button>    
+        <Gamepad2 />
      <div className="mr-2 hover:shadow-lg rounded-md  px-2 py-1">
       <Useracc/>
      </div>
