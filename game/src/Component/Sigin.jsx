@@ -1,33 +1,47 @@
-import  { useState } from 'react'
+import  { useState , useRef} from 'react'
 import {signInWithEmailAndPassword } from 'firebase/auth'; 
 import {useFirebaseAuth} from '../Auth/Fireauth' 
 import { useNavigate } from 'react-router';
 import Loading from './Loader/Loading';
+
 // -Custom hook using
 const SignIn=()=>{
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const {access,setUser}=useFirebaseAuth();
      const [showLoading,setLoading]=useState(false);
-    // initalize the use navagation hook 
+     const [error ,seterror]=useState(false);
+     const errorTimeoutRef = useRef(null) 
     const navigate=useNavigate();
+
+
     const handleBtn=async(e)=>{
       setLoading(true)
         e.preventDefault();
         // function taht sigin the user and move to mainpage 
-        try{
-            const usercredential =await signInWithEmailAndPassword(access,email,password)
-            setUser(usercredential.user);
-            setTimeout(()=>{
-            setLoading(false)//
-            },5000)
-            setEmail("");
-            setPassword("");
-             navigate("/mainpage");
-            }catch(error){
-              console.log(error);
-            }
+      try{
+         const usercredential =await signInWithEmailAndPassword(access,email,password)
+         setUser(usercredential.user);
+         setTimeout(()=>{
+         setLoading(false)//
+         },5000)
+         setEmail("");
+         setPassword("");
+         navigate("/mainpage");
+      } catch(error)
+       {
+       setLoading(false)
+       seterror(true)
+       if (errorTimeoutRef.current) 
+         { 
+            clearTimeout(errorTimeoutRef.current)
          }
+         errorTimeoutRef.current = setTimeout(() => { 
+            seterror(""); }, 3000); 
+            console.log("Error", error); }
+          console.log(error)
+       }
+         
          // for back to the Home page 
          const backBtn=()=>{
             navigate("/")
@@ -44,14 +58,20 @@ const SignIn=()=>{
                 <h2 className='flex justify-center text-xl font-jetbrains font-semibold'>Login</h2>
              <div className='space-y-2 '>
                 <label className='font-jetbrains  font-semibold text-sm'>Email</label>
-                <input type='email' placeholder='Enter your Email' value={email} onChange={(e)=>setEmail(e.target.value)} className='w-full px-4 py-2 border border-gray-300 rounded-md shadow-lg border-none outline-none' />
+                <input type='email'  placeholder='Enter your Email' value={email} onChange={(e)=>setEmail(e.target.value)} className=' focus:outline-none focus:border-sky-500 focus:ring-sky-500 w-full px-4 py-2 border border-gray-300 rounded-md shadow-lg border-none'  />
                 <label className=' font-jetbrains font-semibold text-sm'>Password</label>
-                <input type='password' placeholder='Password'value={password}  onChange={(e) => setPassword(e.target.value)} className='w-full  px-4 py-2 border border-gray-300 rounded-md shadow-xl  border-none outline-none '/>
+                <input type='password' placeholder='Password'value={password}  onChange={(e) => setPassword(e.target.value)} className=' focus:outline-none focus:border-sky-500 focus:ring-sky-500 w-full  px-4 py-2 border border-gray-300 rounded-md shadow-xl  border-none '/>
              </div>
              <div className='flex justify-center mt-4'>
                 <button onClick={handleBtn} type="submit" className=' bg-black px-2 py-1 w-full rounded-lg text-white font-special text-xl hover:bg-gray-900'>Login</button>
              </div>
             </div>
+            {error && (
+               <div className='mt-4  flex flex-col justify-center  items-center gap-2  '>
+                  <p className='font-jetbrains  '>Invalid email or Paasword </p>
+                  <img src="Vodka.gif" className='w-full  h-20 rounded-lg object-contain ' />
+               </div>
+            )}
             
             </>
          )}
@@ -59,3 +79,8 @@ const SignIn=()=>{
     )
 }
 export default SignIn;
+
+
+
+
+
