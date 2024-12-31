@@ -10,9 +10,8 @@
   - Upload and update profile images.
 - **Game Search**: Search games by  genre using AI-powered recommendations.
 - **Responsive Design**: Styled with Tailwind CSS for a seamless experience on all devices. 
-- **AI Integration (Planned)** :
-    - Smart game recommendations based on user preferences.
-    - Personalized dashboards powered by AI algorithms.
+- **AI  Support ** :
+
       
 ## 🚀 Technologies Used
  - **React**: Frontend framework for building an interactive and dynamic user interface.
