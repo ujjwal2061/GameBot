@@ -15,7 +15,7 @@ const RemoveGames=(gameToRemove)=>{
 
   <div className="grid grid-cols-1 dark:text-white  text-black  md:grid-cols-4 sm:grid-cols-3 ">
     {favaGames.length > 0 ? ( favaGames.map((el, i) => (
-      <div key={i} className="p-2 bg-gray-800 gap-2 rounded-lg m-2 transition-all ease-in-out duration-500 hover:scale-105 cursor-pointer">
+      <div key={i} className="p-2 shadow-3d-shadow gap-2 rounded-lg m-2 transition-all ease-in-out duration-500 hover:scale-105 cursor-pointer">
         <img src={el.background_image} alt={el.name} className="rounded-lg object-cover h-56" />
         <h2 className="mt-1 font-semibold">{el.name}</h2>
         <h3 className="text-sm m-1">❇️{el.rating} 🗯{el.reviews_count} 📛{el.rating_top}</h3>

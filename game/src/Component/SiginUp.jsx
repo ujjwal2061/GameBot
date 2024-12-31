@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import {useFirebaseAuth} from '../Auth/Fireauth'
 import {createUserWithEmailAndPassword,signInWithPopup} from"firebase/auth"
 import {  NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loader/Loading';
-import Useracc from '../Useracc/Useracc';
+
 // export the useFirebaseAuth from the Firebase.jsx which custom hook
 
 export default function SiginUp() {

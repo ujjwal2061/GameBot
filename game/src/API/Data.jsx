@@ -7,9 +7,10 @@ const Data=()=>{
     const {theme}=useContext(ToogleContext)
     const [acvtiveIndex,setactiveIndex]=useState()
     const [selectedGenreId, setSelectedGenreId] = useState("4");
+    
 
 
-    // const key=import.meta.env.VITE_RAWG_APIKEY
+    
     const key ="81fad494a94b4a6f877abc6a14d864db"
     // show the Data one Component render
     const getGener = async () => {
@@ -47,12 +48,11 @@ const Data=()=>{
         
        },[selectedGenreId])
 
-    // for the Loading Section 
       
     return(
   
-  <section className={`mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" : "" } `}>
-        <div className=" fixed top-14 left-0 h-screen w-[20%] overflow-y-auto    border-r-2 hidden md:block ">
+  <section className={`mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" :" "} `}>
+        <div className=" fixed top-14 left-0 h-screen w-[22%] overflow-y-auto    border-r-2 hidden md:block ">
           <h2 className="dark:text-white   dark:hover:bg-slate-200  dark:hover:text-black font-special   hover:bg-gray-950 hover:text-white rounded-md px-2 py-1  cursor-pointer  m-2">Gener Section</h2>
           {GamesGener && GamesGener.map((items,index)=>{
            return (
@@ -63,7 +63,9 @@ const Data=()=>{
            )
           })}
         </div>
-         <div className= " ml-[200px] md:ml-[320px]  col-span-3 md:col-span-4 ">
+
+   
+         <div className= " ml-[90px] md:ml-[300px]  col-span-3 md:col-span-4 ">
           {/* pass the props here the games id */ }
         <GamesList   generID={selectedGenreId}  /> 
         </div> 
@@ -72,3 +74,4 @@ const Data=()=>{
     )
 }
 export default Data;
+ 

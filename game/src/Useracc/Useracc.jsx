@@ -1,7 +1,6 @@
 import {access} from '../Auth/Fireauth'
 import { useEffect } from "react";
 import { useState } from "react";
-import {User ,LogOut,Pencil} from 'lucide-react'
 import {signOut} from "firebase/auth"
 import { useNavigate } from 'react-router';
 
@@ -68,11 +67,12 @@ const Useracc=()=>{
         <img  src={userimage}  alt="User"  className="w-full h-full object-cover" />
          ) : (
            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-              <User className="w-6 h-6 text-gray-400" />
+              <i className="fa-solid fa-user w-4 h-4"></i>
             </div>
             )}
-        <div className="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow-md">
-          <Pencil className="w-2 h-2 text-gray-600" />
+        <div className="absolute -bottom-1.5 right-0  top-6
+         text-sm mr-2 rounded-full shadow-md">
+        <i className="fa-solid fa-pencil h-2 w-2"></i>
       </div>
    </div>
   </button>
@@ -92,10 +92,10 @@ const Useracc=()=>{
               )}                  
            <p className="text-sm text-gray-500">{access.currentUser.email||"No email "}</p>
       </div>
-      <label className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 flex items-center cursor-pointer">
+      <label className="px-2 py-2 text-sm text-gray-700 hover:bg-gray-300 flex items-center   font-jetbrains cursor-pointer">
          <input  type="file"  accept="image/*"    className="hidden"    onChange={handleImage} />
-         <User className="w-4 h-4 mr-2" />Change Profile Image </label>
-         <button  onClick={logout} className="w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 flex items-center" ><LogOut className="w-4 h-4 mr-2" />Logout</button>
+        <i className="fa-solid fa-user w-2 h-2 m-1 ">Change</i></label>
+         <button  onClick={logout} className="w-full px-4 py-2 text-sm text-red-600 hover:bg-gray-100 flex items-center" ><i className="fa-solid fa-right-from-bracket w-4 h-4 "></i>Logout</button>
     </div>
  )}
 </div>
