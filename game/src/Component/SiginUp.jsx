@@ -46,13 +46,13 @@ export default function SiginUp() {
      }
 
  return ( 
-     <section className='min-h-screen flex  flex-col items-center justify-center'>
+     <section className='min-h-screen flex  flex-col items-center justify-center   bg-radial-pattern bg-grid'>
          {showLoading ?( <Loading />):(
             <>
            <div className='flex   justify-items-start w-full'>
               <button className=' ml-12 bg-black px-2 py-1 rounded-lg text-white font-special text-xl hover:bg-gray-900 md:top-20 md:left-7' onClick={backBtn}><i className="fa-solid fa-arrow-left m-2"></i>Back</button>
            </div>
-            <div className='p-7 mb-10 bg-white rounded-lg w-80 shadow-2xl hover:shadow-lg'>
+            <div className='p-7 mb-10 bg-white rounded-lg w-80  hover:shadow-lg '>
                 <h2 className='text-center text-2xl font-special font-semibold  mb-6'> Create a New Account </h2>
                 <form  onSubmit={handleSubmit}  className='space-y-4 '>
 
