@@ -4,16 +4,15 @@ import { initializeApp } from "firebase/app";
 import {getAuth,GoogleAuthProvider,onAuthStateChanged } from 'firebase/auth'
 
 
-const firebaseConfig = { 
- apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
- authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
- projectId: import.meta.env.VITE_FIREBASE_PROJECID,
- storageBucket:import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
- messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
- appId:import.meta.env.VITE_FIREBASE_APPID,
- measurementId:import.meta.env.VITE_FIREBASE_MEASUREMENTID
-
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyDj7KBxjFONI0Jga5x5MnsM8EtLS1aCmH8",
+  authDomain: "gamebot-1.firebaseapp.com",
+  projectId: "gamebot-1",
+  storageBucket: "gamebot-1.firebasestorage.app",
+  messagingSenderId: "249280016490",
+  appId: "1:249280016490:web:a1a3ab9aebc7ba5dfa9a13",
+  measurementId: "G-53R2T9VG22"
+};
 
 
 // Initialize Firebase
