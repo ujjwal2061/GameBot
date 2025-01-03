@@ -9,7 +9,7 @@ const Data=()=>{
     const [acvtiveIndex,setactiveIndex]=useState()
     const [selectedGenreId, setSelectedGenreId] = useState("4");
     const [isShow ,setShow]=useState(false)
-
+    const [error ,setError]=useState(false);
 
     
     const key ="81fad494a94b4a6f877abc6a14d864db"
@@ -24,6 +24,7 @@ const Data=()=>{
         const rep = await Result.json();
         setGamesGenere(rep.results);
       } catch (error) {
+        setError(true)
         console.log("Fetching error", error);
       }
     };
@@ -48,15 +49,15 @@ const Data=()=>{
         }
         
        },[selectedGenreId])
-     
-
-        const ShowAI=()=>{
+      // For Show the AI chat Box Div 
+       const ShowAI=()=>{
           setShow(!isShow)
         }
       
     return(
   
   <section className={`relative   mt-14  grid grid-cols-3 ${theme === "dark" ? "bg-black text-white" :" "} `}>
+        
         <div className=" fixed top-14 left-0 h-screen w-[22%] overflow-y-auto    border-r-2 hidden md:block ">
           <h2 className="dark:text-white   dark:hover:bg-slate-200  dark:hover:text-black font-special   hover:bg-gray-950 hover:text-white rounded-md px-2 py-1  cursor-pointer  m-2">Gener Section</h2>
           {GamesGener && GamesGener.map((items,index)=>{
@@ -66,6 +67,7 @@ const Data=()=>{
               <h3  className=" dark:text-white ml-2 font-mono text-xl  font-semibold">{items.name}</h3>
            </div>
            )
+      
           })}
         </div>
 
@@ -74,21 +76,26 @@ const Data=()=>{
           {/* pass the props here the games id */ }
         <GamesList   generID={selectedGenreId}  /> 
         </div> 
-        {/* AI Div f  fOR User Chat  */}
-    
+
+        {/* AI Div   fOR User Chat  */}
     {!isShow && (
        <div className="fixed bottom-1  shadow-2xl  px-2 py-1   transition-all  ease-in-out  duration-500 hover:scale-110 cursor-pointer  rounded-lg right-2 md:right-2 flex flex-row items-center">
        <img src="Ai.jpg" className="w-[40px] h-[40px] rounded-full object-contain p-2" />
        <button onClick={ShowAI} className="px-2 py-1 rounded-lg bg-blue-600 text-white font-jetbrains">Chat With AI</button>
      </div> 
     )}
-          {isShow && (
-           <div className=" w-[60%] h-[70%] fixed bottom-2 right-1">
-           <AI  setShow={setShow} />
+      {isShow && (
+        <div className=" w-[60%] h-[70%] fixed bottom-2 right-3">
+          <AI  setShow={setShow} />
          </div>
-          )}
-        
-    
+      )}
+    {/*Error Section when It Fertching the Data Form API call */}
+         {error && (
+            <div className='mt-4  flex flex-col justify-center  items-center gap-2  '>
+               <p className='font-jetbrains  '>WoW You Error </p>
+               <img src="Vodka.gif" className='w-full  h-20 rounded-lg object-contain ' />
+            </div>
+         )}
      </section>
 
     )

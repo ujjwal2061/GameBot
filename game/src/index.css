@@ -4,7 +4,7 @@
 
 
  // For Loader part
-.loader {
+/* .loader {
     width: 90px;
     height: 24px;
     padding: 2px 0;
@@ -36,5 +36,35 @@
   }
   @keyframes l5-0{ 
     100% {background-size:120% 100%,20% 100%}
+  } */
+
+.loader {
+  width: 65px;
+  display: grid;
+  --mask: 
+    radial-gradient(12px at left 15px top 50%, #0000 95%, #000),
+    radial-gradient(12px at right 15px top 50%, #0000 95%, #000);
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+  animation: l1 1s infinite alternate;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  height: 30px;
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+}
+.loader:after {
+  margin-left: auto;
+}
+@keyframes l1 {
+  to {
+    width: 40px;
   }
+}
   
