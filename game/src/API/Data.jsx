@@ -12,7 +12,7 @@ const Data=()=>{
     const [error ,setError]=useState(false);
 
     
-    const key ="81fad494a94b4a6f877abc6a14d864db"
+    const key=import.meta.env.VITE_GAME_APIKEY;
     // show the Data one Component render
     const getGener = async () => {
       const link = `https://api.rawg.io/api/genres?key=${key}`;

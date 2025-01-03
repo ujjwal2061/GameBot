@@ -110,8 +110,7 @@ const processGameResponse = (response) => {
 
 
   const getGamesAnswer = async () => {
-   const key="AIzaSyB6TLf9dv-6PRmaEhyTXYDoMCs-x_uLdf8"
-    
+     const key=import.meta.env.VITE_AI_APIKEY    
     if (input.trim()) {
       const newAnswer = [...answer, { text: input, user: true }];
       setAnswer(newAnswer);
@@ -177,13 +176,9 @@ const processGameResponse = (response) => {
           </div>
         </div>
       </div>
-
-      {/* Messages */}
        <div className="flex-1 overflow-y-auto bg-white px-4 py-2">
         {answer.map((ans, index) => (
-          <div 
-            key={index} 
-            className={`flex ${ans.user ? 'justify-end' : 'justify-start'} mb-2`}  >
+          <div key={index}  className={`flex ${ans.user ? 'justify-end' : 'justify-start'} mb-2`}  >
             <div className={`px-4 py-2 max-w-[70%] rounded-3xl break-words ${ ans.user ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900 '}`} >
             {ans.user ? ans.text : ans.text.split('\n').map((line, i) => (
                 <div key={i} className="mb-1"><li>{line}</li></div>
