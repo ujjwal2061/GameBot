@@ -10,9 +10,8 @@
   - Upload and update profile images.
 - **Game Search**: Search games by  genre using AI-powered recommendations.
 - **Responsive Design**: Styled with Tailwind CSS for a seamless experience on all devices. 
-- **AI Integration (Planned)** :
-    - Smart game recommendations based on user preferences.
-    - Personalized dashboards powered by AI algorithms.
+- **AI  Support ** :
+
       
 ## 🚀 Technologies Used
  - **React**: Frontend framework for building an interactive and dynamic user interface.
@@ -36,7 +35,7 @@ Follow these steps to set up the project locally:
 ![Rep1](https://github.com/user-attachments/assets/07795984-1909-43eb-8a1d-97cffeef5f51)
 
  ## AI Support 
- -Chat With AI For Your  Games Infromation  
+ - Chat With AI For Your  Games Infromation  
  
 
    
