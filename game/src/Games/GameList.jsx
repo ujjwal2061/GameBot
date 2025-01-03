@@ -9,7 +9,7 @@ const GamesList=({generID})=>{
       const [showCard,setShowCard]=useState(false)
       
   
-        const key=import.meta.env.VITE_GAME_APIKEY
+        const key="81fad494a94b4a6f877abc6a14d864db"
         const getGames=async()=>{
         const gameLink=`https://api.rawg.io/api/games?key=${key}&genres=${generID}`
         try{

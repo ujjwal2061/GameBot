@@ -110,7 +110,8 @@ const processGameResponse = (response) => {
 
 
   const getGamesAnswer = async () => {
-     const key=import.meta.env.VITE_AI_APIKEY    
+     const key="AIzaSyB6TLf9dv-6PRmaEhyTXYDoMCs-x_uLdf8"
+   
     if (input.trim()) {
       const newAnswer = [...answer, { text: input, user: true }];
       setAnswer(newAnswer);
