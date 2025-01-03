@@ -18,7 +18,8 @@
  -  **Firebase**:
      - Authentication: Secure login and sign-up functionality.
      - Storage: Handling profile image uploads.
-
+- **Gemini**
+   - API 
 - **Tailwind CSS**: A utility-first CSS framework for building modern and responsive designs.
 
  ## 🛠️ Installation & Setup
