@@ -37,7 +37,7 @@ const SignIn=()=>{
             clearTimeout(errorTimeoutRef.current)
          }
          errorTimeoutRef.current = setTimeout(() => { 
-            seterror(""); }, 3000); 
+            seterror(""); }, 5000); 
             console.log("Error", error); }
           
        }

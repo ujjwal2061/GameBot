@@ -72,7 +72,7 @@ const Data=()=>{
         </div>
 
    
-         <div className= " ml-[90px] md:ml-[300px]  col-span-3 md:col-span-4 ">
+         <div className= "  ml-[50px] md:ml-[340px]  col-span-3 md:col-span-4 ">
           {/* pass the props here the games id */ }
         <GamesList   generID={selectedGenreId}  /> 
         </div> 

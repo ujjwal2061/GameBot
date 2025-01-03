@@ -36,3 +36,31 @@
   }
 }
   
+
+
+
+
+.progress {
+   width: 180px;
+   height: 24.6px;
+   border-radius: 22.4px;
+   color: #171720;
+   border: 2.2px solid;
+   position: relative;
+}
+
+.progress::before {
+   content: "";
+   position: absolute;
+   margin: 2.2px;
+   inset: 0 100% 0 0;
+   border-radius: inherit;
+   background: currentColor;
+   animation: progress-pf82op 2s infinite;
+}
+
+@keyframes progress-pf82op {
+   100% {
+      inset: 0;
+   }
+}

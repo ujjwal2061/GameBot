@@ -53,7 +53,7 @@ const GamesList=({generID})=>{
     <div className=" reative  flex justify-center rounded-lg " >
           { gameslist?.length>0 && (
             <div>
-              <img src={gameslist[0].background_image} className="m-2 w-full max-w-[700px] h-auto rounded-md object-contain  hover:shadow-lg"/>
+              <img src={gameslist[0].background_image} className=" w-full max-w-[700px] h-auto rounded-md object-contain  hover:shadow-lg"/>
               </div>
           )}
     </div>
