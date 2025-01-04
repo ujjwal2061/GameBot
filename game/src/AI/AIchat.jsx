@@ -94,9 +94,9 @@ const processGameResponse = (response) => {
 
   // Enhance response for game suggestions
   const isAskingForSuggestions = response.toLowerCase().includes('suggest') || 
-                                response.toLowerCase().includes('recommend') ||
-                                response.toLowerCase().includes('what game') ||
-                                response.toLowerCase().includes('which game');
+          response.toLowerCase().includes('recommend') ||
+          response.toLowerCase().includes('what game') ||
+          response.toLowerCase().includes('which game');
 
   if (isAskingForSuggestions && gamePoints.length === 0) {
     return "I'd be happy to suggest some games! Could you tell me:\n• What genres do you enjoy?\n• Which gaming platforms do you have?\n• Any specific features you're looking for?";
@@ -110,8 +110,7 @@ const processGameResponse = (response) => {
 
 
   const getGamesAnswer = async () => {
-     const key="AIzaSyB6TLf9dv-6PRmaEhyTXYDoMCs-x_uLdf8"
-   
+      const key=import.meta.env.VITE_AI_APIKEY;
     if (input.trim()) {
       const newAnswer = [...answer, { text: input, user: true }];
       setAnswer(newAnswer);
@@ -173,7 +172,7 @@ const processGameResponse = (response) => {
         <div className="ml-3 flex items-center w-full ">
            <img src="Ai.jpg" className="w-[40px] h-[40px] rounded-full object-contain p-2" />  
           <div className="ml-3">
-            <h2 className="font-semibold text-sm">AI Assistant</h2>
+            <h2 className="font-semibold  dark:text-black font-jetbrains text-sm">AI Assistant</h2>
           </div>
         </div>
       </div>
